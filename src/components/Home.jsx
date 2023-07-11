@@ -5,8 +5,10 @@ import { v4 as uuidv4 } from 'uuid';
 import {fetchCountries} from "../redux/features/countriesSlice"
 import { NavLink } from "react-router-dom";
 import Searching from "./searching"
+import "../Style/home.css"
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
 
 const Home = () => {
   const myUuid = uuidv4();
@@ -60,32 +62,31 @@ const Home = () => {
         <Form.Control  type="search" name="input" value={input} onChange={handleInput} placeholder="searchByCountry" />
       </Form.Group>
       </div>
-      <div>
+      <Card className="grid-container">
 					{ input.length <= 0 ?(
               countries.map((country) =>(
-              <div>
+              <Card.Body className="d-flex">
                 <NavLink key={myUuid} to="/Details" state={{country : country}}>
-                <p>
+                <Card className="p-4"  variant="Secondary" style={{ width: '14rem' }}>
                 <span>{country.flag}</span>
                   <br />
                   <br />
                   {country.name.common}
-                  {' '}
-                  <br />
+                     <br />
                   {country.population}
-                  {' '}
+                
                   people
-                </p>
+                </Card>
                     </NavLink>
                    
-              </div>
+              </Card.Body>
           ))) :(
                <Searching countriesArray={countries} input={input} />
               )
               
 				}
     
-    </div>
+    </Card>
     </Container>
 	
 	)

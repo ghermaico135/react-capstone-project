@@ -2,7 +2,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
-
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 
 const Detail = () => {
 	let navigate = useNavigate();
@@ -13,20 +14,20 @@ console.log(country.name.common)
 
 
 	return (
-			<div>
-					<div onClick={() => { navigate("/")}}>
-					<img width="50" height="50" src="https://img.icons8.com/ios/50/circled-left-2.png" alt="circled-left-2"/>
+			<Container fluid>
+					<div className="p-2 mt-2" onClick={() => { navigate("/")}}>
+					<img width="25" height="25" src="https://img.icons8.com/ios/50/circled-left-2.png" alt="circled-left-2"/>
 					</div>
-					<div>
+					<Card className="p-4 mt-5">
 						{country && country.name.common && country.name.official && (
-								<>
+								<Card.Body>
 									<h2>{country.name.official}</h2>
 									{country.flag && <p>{country.flag}</p>}
-								</>
+								</Card.Body>
 							)}
-					</div>
+					</Card>
 		
-				<div>
+				<Card className="p-4 mt-5">
 					{country && country.continents[0] &&(<p><span>Continent =</span>{country.continents[0]}</p>) }
 					{country && country.region &&(<p><span> Region = </span>{country.region}</p>)}
 					{country && country.subregion &&(<p> <span>subregion =</span>{country.subregion}</p>)}
@@ -35,10 +36,10 @@ console.log(country.name.common)
 					{country && country.timezones &&(<p><span>TimeZone =</span>{country.timezones[0]}</p>) }
 					{country && country.population !== 0 &&(<p><span>Population =</span>{country.population}</p>)}
 					{country && country.area  &&(<p> <span>Area in Square Km =</span> {country.area} <span>km</span></p>)}
-				</div>
+				</Card>
 
 			
-		</div>
+		</Container>
 	);
 };
 
