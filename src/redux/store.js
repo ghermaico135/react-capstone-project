@@ -5,7 +5,7 @@ import countryReducer from "./features/countriesSlice";
 
 const store = configureStore({
 	reducer: {
-		countryStore: countryReducer,
+		countries: countryReducer,
 	},
 });
 
