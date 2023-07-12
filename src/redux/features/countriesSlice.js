@@ -42,6 +42,8 @@ const countrySlice = createSlice({
 				action.payload.forEach((item) => {
 					state.countries.push(item);
 				});
+			} else {
+				state.countries = [];
 			}
 			state.isLoading = false;
 		});
