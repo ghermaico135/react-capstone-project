@@ -50,6 +50,10 @@ const Home = () => {
     );
   }
 
+  const filteredCountries = countries.filter((country) => {
+    return country.name.common.toLowerCase().includes(input.toLowerCase());
+  });
+
   return (
     <div className="mt-4  wrapper">
       <div>
@@ -62,7 +66,7 @@ const Home = () => {
       <div className="grid-container">
         { input.length <= 0 ? (
           countries.map((country) => (
-            <NavLink className="text-decoration" key={myUuid} to="/Details" state={{ country }}>
+            <NavLink className="text-decoration" key={myUuid} to="/Details" state={{ country  }}>
               <div className="p-4 card-item">
                 <img className="next-page" src="https://img.icons8.com/windows/32/circled-right-2.png" alt="circled-right-2" />
                 <p className="text-center">{country.flag}</p>
@@ -79,7 +83,7 @@ const Home = () => {
             </NavLink>
           )))
           : (// <p>{input}</p>
-            <Searching countriesArray={countries} input={input} />
+            <Searching countriesArray={filteredCountries} input={input} />
           )}
 
       </div>
