@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
@@ -12,9 +11,8 @@ const Home = () => {
   const myUuid = uuidv4();
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
-  // console.log(input)
+
   const { countries, isLoading, error } = useSelector((state) => state.countries);
-  // console.log(countries)
 
   useEffect(() => {
     if (countries.length === 0) {
@@ -49,10 +47,8 @@ const Home = () => {
       </div>
     );
   }
-
-  const filteredCountries = countries.filter((country) => {
-    return country.name.common.toLowerCase().includes(input.toLowerCase());
-  });
+  const filteredCountries = countries.filter((country) => country.name.common.toLowerCase()
+    .includes(input.toLowerCase()));
 
   return (
     <div className="mt-4  wrapper">
@@ -66,7 +62,7 @@ const Home = () => {
       <div className="grid-container">
         { input.length <= 0 ? (
           countries.map((country) => (
-            <NavLink className="text-decoration" key={myUuid} to="/Details" state={{ country  }}>
+            <NavLink className="text-decoration" key={myUuid} to="/Details" state={{ country }}>
               <div className="p-4 card-item">
                 <img className="next-page" src="https://img.icons8.com/windows/32/circled-right-2.png" alt="circled-right-2" />
                 <p className="text-center">{country.flag}</p>
@@ -82,7 +78,7 @@ const Home = () => {
               </div>
             </NavLink>
           )))
-          : (// <p>{input}</p>
+          : (
             <Searching countriesArray={filteredCountries} input={input} />
           )}
 

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import '../Style/detail.css';
@@ -6,8 +5,6 @@ import '../Style/detail.css';
 const Detail = () => {
   const location = useLocation();
   const country = location.state?.country;
-
-  // console.log(country.name.common);
 
   return (
     <div className="wrapper mt-5">

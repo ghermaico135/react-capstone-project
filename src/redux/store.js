@@ -1,12 +1,10 @@
-/** @format */
-/* eslint-disable */
-import { configureStore } from "@reduxjs/toolkit";
-import countryReducer from "./features/countriesSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import countryReducer from './features/countriesSlice';
 
 const store = configureStore({
-	reducer: {
-		countries: countryReducer,
-	},
+  reducer: {
+    countries: countryReducer,
+  },
 });
 
 export default store;
