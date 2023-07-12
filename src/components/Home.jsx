@@ -1,36 +1,33 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import {fetchCountries} from "../redux/features/countriesSlice"
-import { NavLink } from "react-router-dom";
-import Searching from "./searching"
-import "../Style/home.css"
-import Container from 'react-bootstrap/Container';
+import { NavLink } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
+import { fetchCountries } from '../redux/features/countriesSlice';
+import Searching from './searching';
+import '../Style/home.css';
 
 const Home = () => {
   const myUuid = uuidv4();
-  let dispatch = useDispatch()
-  const [input ,setInput] = useState('')
+  const dispatch = useDispatch();
+  const [input, setInput] = useState('');
   // console.log(input)
-    const {countries,isLoading,error} = useSelector(state => state.countries)
-    // console.log(countries)
+  const { countries, isLoading, error } = useSelector((state) => state.countries);
+  // console.log(countries)
 
-  useEffect(()=>{
-			// if(countries.length === 0){
-			// 	dispatch(fetchCountries())
-			// }
-      dispatch(fetchCountries())
-  },[dispatch])
+  useEffect(() => {
+    if (countries.length === 0) {
+      dispatch(fetchCountries());
+    }
+  }, [dispatch, countries.length]);
 
-  const handleInput = (e) =>{
-    e.preventDefault()
-    setInput(e.target.value)
-  }
+  const handleInput = (e) => {
+    e.preventDefault();
+    setInput(e.target.value);
+  };
 
-	if (isLoading) {
+  if (isLoading) {
     return (
       <div>
         <h4>Loading...</h4>
@@ -53,41 +50,42 @@ const Home = () => {
     );
   }
 
-	return (
-    <div className="mt-4  wrapper"> 
+  return (
+    <div className="mt-4  wrapper">
       <div>
-      <h1 className="title">Searching Info By countries</h1>
-   
-      <Form.Group className="mb-3" controlId="formGroupEmail">
-        <Form.Control  type="search" name="input" value={input} onChange={handleInput} placeholder="searchByCountry" />
-      </Form.Group>
+        <h1 className="title">Searching Info By countries</h1>
+
+        <Form.Group className="mb-3" controlId="formGroupEmail">
+          <Form.Control type="search" name="input" value={input} onChange={handleInput} placeholder="searchByCountry" />
+        </Form.Group>
       </div>
       <div className="grid-container">
-					{ input.length <= 0 ?(
-              countries.map((country) =>(
-            
-                <NavLink  className="text-decoration" key={myUuid}  to="/Details" state={{country : country}}>
-                <div className="p-4 card-item">
-                <img className="next-page" src="https://img.icons8.com/windows/32/circled-right-2.png" alt="circled-right-2"/>
+        { input.length <= 0 ? (
+          countries.map((country) => (
+            <NavLink className="text-decoration" key={myUuid} to="/Details" state={{ country }}>
+              <div className="p-4 card-item">
+                <img className="next-page" src="https://img.icons8.com/windows/32/circled-right-2.png" alt="circled-right-2" />
                 <p className="text-center">{country.flag}</p>
-                <p className="text-center ">{country.name.common}</p> 
-                <p className="text-center">{country.population} { ''} people</p>  
-                
-               </div>
+                <p className="text-center ">{country.name.common}</p>
+                <p className="text-center">
+                  {country.population}
+                  {' '}
+
+                  {' '}
+                  people
+                </p>
+
+              </div>
             </NavLink>
-                   
-             
-          ))) :(
-            <p>{input}</p>
-              //  <Searching countriesArray={countries} input={input} />
-              )
-              
-				}
-    
+          )))
+          : (// <p>{input}</p>
+            <Searching countriesArray={countries} input={input} />
+          )}
+
+      </div>
     </div>
-    </div>
-	
-	)
+
+  );
 };
 
 export default Home;
