@@ -80,7 +80,8 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- [Live Demo Link - Available on loom](https://www.loom.com/share/4e611c60a12247228506edfaf45fdec8)
+- [Live Demo Link - Available on render(https://global-web-meterics.onrender.com/)
+- Available on loom](https://www.loom.com/share/4e611c60a12247228506edfaf45fdec8)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -100,8 +101,8 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  cd my-folder
-  git clone https://github.com/ProgramKingAbel/space_travelers_hub
+  cd web-matrics
+  git clone https://github.com/ghermaico135/react-capstone-project.git
 ```
 
 ### Install
@@ -177,9 +178,12 @@ If you like this project give it a `star`.
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
+Original design idea by Nelson Sakwa on Behance.
+
+The Creative Commons license of the design requires that you give appropriate credit to the author. Therefore, you must do it in the README of your project.
 
 I would like to thank Microverse and my Coding Partners.
-
+I would like to thank Nelson Sakwa on Behance and Creative Commons  design
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
