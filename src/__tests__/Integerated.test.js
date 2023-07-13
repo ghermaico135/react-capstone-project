@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Home from '../components/Home';
+// import { MemoryRouter } from 'react-router-dom';
+// import Searching from '../components/searching';
 
 const mockStore = configureStore([]);
 
@@ -55,6 +57,8 @@ describe('Home component', () => {
     expect(screen.getByText('canada')).toBeInTheDocument();
     expect(screen.getByText('Flag 2')).toBeInTheDocument();
   });
+
+
 
   afterEach(() => {
     jest.clearAllMocks();
