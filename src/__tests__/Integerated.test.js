@@ -58,8 +58,6 @@ describe('Home component', () => {
     expect(screen.getByText('Flag 2')).toBeInTheDocument();
   });
 
-
-
   afterEach(() => {
     jest.clearAllMocks();
   });
