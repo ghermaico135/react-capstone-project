@@ -35,7 +35,7 @@
 
 # 📖Global-web-metrics<a name="about-project"></a>
 
-**Global-web-metrics** is a web application for a searching information countries on the globe. The application will allow users to search information about any country in the world.
+**Global-web-metrics** is a web application for a searching information of countries on the globe. The mobile designed application will allow users to search information about any country in the world.
 
 ## 🛠 Built With <a name="built-with"></a>
 
