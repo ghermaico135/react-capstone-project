@@ -80,7 +80,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- [Live Demo Link - Available on render](https://global-web-meterics.onrender.com/)
+- [Live Demo Link - Available on loom](https://www.loom.com/share/4e611c60a12247228506edfaf45fdec8)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
