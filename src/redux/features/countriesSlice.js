@@ -5,6 +5,7 @@ const initialState = {
   countries: [],
   isLoading: false,
   error: null,
+  input: '',
 };
 
 const options = {
@@ -23,11 +24,20 @@ export const fetchCountries = createAsyncThunk(
     return response.data;
   },
 );
+// updating the input
+export const setInputValue = (value) => ({
+  type: ' countries/searching',
+  payload: value,
+});
 
 const countrySlice = createSlice({
   name: 'countries',
   initialState,
-  reducers: {},
+  reducers: {
+    setInputValue: (state, action) => {
+      state.input = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCountries.pending, (state) => {
       state.isLoading = true;
@@ -38,9 +48,9 @@ const countrySlice = createSlice({
         action.payload.forEach((item) => {
           state.countries.push(item);
         });
-      } else {
-        state.countries = [];
       }
+      state.countries = action.payload.filter((country) => country.name.common.toLowerCase()
+        .includes(state.input.toLowerCase()));
       state.isLoading = false;
     });
     builder.addCase(fetchCountries.rejected, (state) => {

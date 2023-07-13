@@ -2,7 +2,7 @@
 
 
 <div align="center">
-<img src="./public/planet.png" width="75px" height="75px">
+<img src="./public/world-map.jpg" width="100px" height="95px">
 <h1><b>Global info search</b></h1>
 
 </div>
@@ -80,7 +80,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- [Live Demo Link - Available on render](https://space-travellers-hub-2ve1.onrender.com/)
+- [Live Demo Link - Available on render](https://global-web-meterics.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -131,14 +131,12 @@ To run tests, run the following command:
 
 ### Deployment
 
-You can deploy this project using:
+This project deploy using Render:
 
-- Free deployment services like GitHub pages.
-- Any deployment services of your choice.
+- Available on render(https://global-web-meterics.onrender.com/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
@@ -164,7 +162,7 @@ You can deploy this project using:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page]((https://github.com/ProgramKingAbel/space_travelers_hub/issues/)).
+Feel free to check the [issues page]((https://github.com/ghermaico135/react-capstone-project/issues)).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

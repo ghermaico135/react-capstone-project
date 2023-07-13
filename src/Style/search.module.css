@@ -13,31 +13,10 @@ body {
   font-family: 'Roboto Slab', serif;
 }
 
-.wrapper {
-  border: 4px solid #000;
-  border-radius: 4%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 6px;
-  background-color: #a399b2;
-  background-image: linear-gradient(147deg, #a399b2 0%, #4d4855 74%);
-}
-
 .title {
   font-size: 25px;
   font-weight: 900;
   color: #000;
-}
-
-.grid-container {
-  height: 80vh;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  overflow-x: hidden;
-  overflow-y: scroll;
 }
 
 .text-decoration {
@@ -52,6 +31,7 @@ body {
   padding: 0.5rem;
   box-shadow: -5px 14px 12px -3px rgba(0, 0, 0, 0.4);
   border-radius: 2px;
+  overflow: hidden;
 }
 
 .next-page {

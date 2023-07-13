@@ -3,16 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { NavLink } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-import { fetchCountries } from '../redux/features/countriesSlice';
+import { fetchCountries, setInputValue } from '../redux/features/countriesSlice';
 import Searching from './searching';
-import '../Style/home.css';
+import style from '../Style/home.module.css';
 
 const Home = () => {
   const myUuid = uuidv4();
   const dispatch = useDispatch();
-  const [input, setInput] = useState('');
+  const [text, setText] = useState('');
 
-  const { countries, isLoading, error } = useSelector((state) => state.countries);
+  const {
+    countries, isLoading, error,
+  } = useSelector((state) => state.countries);
 
   useEffect(() => {
     if (countries.length === 0) {
@@ -22,7 +24,9 @@ const Home = () => {
 
   const handleInput = (e) => {
     e.preventDefault();
-    setInput(e.target.value);
+    const { value } = e.target;
+    setText(value);
+    dispatch(setInputValue(value));
   };
 
   if (isLoading) {
@@ -48,23 +52,23 @@ const Home = () => {
     );
   }
   const filteredCountries = countries.filter((country) => country.name.common.toLowerCase()
-    .includes(input.toLowerCase()));
+    .includes(text.toLowerCase()));
 
   return (
-    <div className="mt-4  wrapper">
+    <div className={style.wrapper}>
       <div>
-        <h1 className="title">Searching Info By countries</h1>
+        <h1 className={style.title}>Searching Info By countries</h1>
 
         <Form.Group className="mb-3" controlId="formGroupEmail">
-          <Form.Control type="search" name="input" value={input} onChange={handleInput} placeholder="searchByCountry" />
+          <Form.Control type="search" name="input" value={text} onChange={handleInput} placeholder="searchByCountry" />
         </Form.Group>
       </div>
-      <div className="grid-container">
-        { input.length <= 0 ? (
+      <div className={style['grid-container']} key={myUuid}>
+        { text.length <= 0 ? (
           countries.map((country) => (
-            <NavLink className="text-decoration" key={myUuid} to="/Details" state={{ country }}>
-              <div className="p-4 card-item">
-                <img className="next-page" src="https://img.icons8.com/windows/32/circled-right-2.png" alt="circled-right-2" />
+            <NavLink className={style['text-decoration']} key={myUuid} to="/Details" state={{ country }}>
+              <div className={style['card-item']}>
+                <img className={style['next-page']} src="https://img.icons8.com/windows/32/circled-right-2.png" alt="circled-right-2" />
                 <p className="text-center">{country.flag}</p>
                 <p className="text-center ">{country.name.common}</p>
                 <p className="text-center">
@@ -79,7 +83,7 @@ const Home = () => {
             </NavLink>
           )))
           : (
-            <Searching countriesArray={filteredCountries} input={input} />
+            <Searching countriesArray={filteredCountries} />
           )}
 
       </div>
