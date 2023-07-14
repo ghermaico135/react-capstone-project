@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@500;700&family=Roboto+Slab:wght@300&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 1200px;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto Slab', serif;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 900;
+  color: #000;
+}
+
+.text-decoration {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+}
+
+.card-item {
+  width: 11rem;
+  height: 11rem;
+  padding: 0.5rem;
+  box-shadow: -5px 14px 12px -3px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.next-page {
+  width: 25px;
+  height: 25px;
+  float: right;
+}
+
+.card-item:hover {
+  transition: background-color 0.3s ease;
+  background-color: #5078f2;
+}
